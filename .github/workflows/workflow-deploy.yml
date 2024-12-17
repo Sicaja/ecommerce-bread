@@ -24,7 +24,9 @@ jobs:
         run: npm run build
 
       - name: Moving files
-        run: mv ./dist/bread/browser ./dist
+        run: |
+          mv ./dist/browser/* ./dist
+          rm -rf ./dist/browser
 
       - name: Deploy to Github Pages
         uses: peaceiris/actions-gh-pages@v4
