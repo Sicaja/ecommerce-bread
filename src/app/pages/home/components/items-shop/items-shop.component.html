@@ -1,0 +1,15 @@
+<div
+  class="flex flex-col 2xl:max-w-[1280px] max-w-[1000px] mx-auto gap-5 mt-16 mb-16"
+>
+  <h1
+    class="font-BebasNeue font-bold text-[#40220d] text-[60px] 2xl:text-[80px]"
+  >
+    Elige que comprar:
+  </h1>
+
+  <div class="grid 2xl:grid-cols-5 grid-cols-4 gap-8 justify-center">
+    @for (product of products; track $index) {
+    <app-card [product]="product"></app-card>
+    }
+  </div>
+</div>

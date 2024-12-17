@@ -1,0 +1,185 @@
+<div class="w-full max-w-[1100px] mx-auto mt-16">
+  <h1
+    class="font-BebasNeue font-bold text-[#40220d] text-[60px] 2xl:text-[80px]"
+  >
+    Elige tu método de pago:
+  </h1>
+  <div class="grid grid-cols-2 gap-8 mt-8">
+    <div class="border border-surface rounded-border p-4">
+      <h3 class="text-lg font-bold mb-4">Método de Pago</h3>
+      <div class="flex gap-4 flex-wrap [&>button]:w-fit mb-10">
+        <button
+          class="py-2 px-4 rounded text-white flex items-center gap-2"
+          [ngClass]="{
+            'bg-blue-500': selectedPayment === 'creditCard',
+            'bg-gray-200 text-gray-700': selectedPayment !== 'creditCard'
+          }"
+          (click)="selectPaymentMethod('creditCard')"
+        >
+          <i class="pi pi-credit-card"></i>
+          Tarjeta de Crédito
+        </button>
+        <button
+          class="py-2 px-4 rounded text-white flex items-center gap-2"
+          [ngClass]="{
+            'bg-yellow-500': selectedPayment === 'paypal',
+            'bg-gray-200 text-gray-700': selectedPayment !== 'paypal'
+          }"
+          (click)="selectPaymentMethod('paypal')"
+        >
+          <i class="pi pi-paypal"></i>
+          PayPal
+        </button>
+        <button
+          class="py-2 px-4 rounded text-white flex items-center gap-2"
+          [ngClass]="{
+            'bg-green-500': selectedPayment === 'bankTransfer',
+            'bg-gray-200 text-gray-700': selectedPayment !== 'bankTransfer'
+          }"
+          (click)="selectPaymentMethod('bankTransfer')"
+        >
+          <i class="pi pi-university"></i>
+          Transferencia Bancaria
+        </button>
+        <button
+          class="py-2 px-4 rounded text-white flex items-center gap-2"
+          [ngClass]="{
+            'bg-red-500': selectedPayment === 'googlePay',
+            'bg-gray-200 text-gray-700': selectedPayment !== 'googlePay'
+          }"
+          (click)="selectPaymentMethod('googlePay')"
+        >
+          <i class="pi pi-google"></i>
+          Google Pay
+        </button>
+        <button
+          class="py-2 px-4 rounded text-white flex items-center gap-2"
+          [ngClass]="{
+            'bg-black': selectedPayment === 'applePay',
+            'bg-gray-200 text-gray-700': selectedPayment !== 'applePay'
+          }"
+          (click)="selectPaymentMethod('applePay')"
+        >
+          <i class="pi pi-apple"></i>
+          Apple Pay
+        </button>
+      </div>
+
+      @if (selectedPayment === 'creditCard') {
+
+      <div>
+        <h4 class="text-md font-semibold mb-2">Detalles de Tarjeta</h4>
+        <div class="mb-4 w-full">
+          <p-floatlabel variant="in">
+            <input
+              pInputText
+              id="cardNumber"
+              p-inputMask
+              mask="9999 9999 9999 9999"
+              placeholder=" "
+              class="w-full"
+            />
+            <label for="cardNumber">Número de Tarjeta</label>
+          </p-floatlabel>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <p-floatlabel variant="in">
+            <input
+              pInputText
+              id="expiryDate"
+              p-inputMask
+              mask="99/99"
+              placeholder=" "
+              class="w-full"
+            />
+            <label for="expiryDate">Fecha de Expiración</label>
+          </p-floatlabel>
+          <p-floatlabel variant="in">
+            <input
+              pInputText
+              id="cvv"
+              p-inputMask
+              mask="999"
+              placeholder=" "
+              class="w-full"
+            />
+            <label for="cvv">CVV</label>
+          </p-floatlabel>
+        </div>
+      </div>
+      }
+    </div>
+
+    <div class="border border-surface rounded-border p-4">
+      <h3 class="text-lg font-bold mb-4">Formulario de Facturación</h3>
+      <form>
+        <div class="mb-4">
+          <p-floatLabel variant="in">
+            <input
+              id="name"
+              type="text"
+              pInputText
+              class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              placeholder=" "
+            />
+            <label for="name">Nombre Completo</label>
+          </p-floatLabel>
+        </div>
+        <div class="mb-4">
+          <p-floatLabel variant="in">
+            <input
+              id="address"
+              type="text"
+              pInputText
+              class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              placeholder=" "
+            />
+            <label for="address">Dirección</label>
+          </p-floatLabel>
+        </div>
+        <div class="mb-4">
+          <p-floatLabel variant="in">
+            <input
+              id="city"
+              type="text"
+              pInputText
+              class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              placeholder=" "
+            />
+            <label for="city">Ciudad</label>
+          </p-floatLabel>
+        </div>
+        <div class="mb-4">
+          <p-floatLabel variant="in">
+            <input
+              id="postalCode"
+              type="text"
+              pInputText
+              class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              placeholder=" "
+            />
+            <label for="postalCode">Código Postal</label>
+          </p-floatLabel>
+        </div>
+        <div class="mb-4">
+          <p-floatLabel variant="in">
+            <input
+              id="country"
+              type="text"
+              pInputText
+              class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              placeholder=" "
+            />
+            <label for="country">País</label>
+          </p-floatLabel>
+        </div>
+        <button
+          type="submit"
+          class="mt-4 w-full py-2 px-4 bg-blue-500 text-white rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        >
+          Pagar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

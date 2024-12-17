@@ -1,0 +1,84 @@
+<button
+  class="z-[100] w-[100px] aspect-square flex-col fixed bottom-5 right-5 bg-primary text-white rounded-full p-3 shadow-lg flex justify-center items-center hover:bg-black/60 transition-colors"
+  title="Carrito de compras"
+  (click)="toggleDetail()"
+>
+  <span class="font-BebasNeue font-black">1</span>
+  <i class="pi pi-shopping-cart !text-[40px]"></i>
+</button>
+
+<div
+  class="fixed z-[90] inset-0 backdrop-blur-sm animate-scalein"
+  [ngClass]="{ hidden: !showDetail() }"
+>
+  <div
+    class="bg-white relative 2xl:max-w-[1500px] max-w-[inherit] w-3/4 rounded-xl h-3/4 translate-y-[17%] mx-auto shadow-2xl border flex flex-col"
+  >
+    <button
+      title="Cerrar"
+      type="button"
+      class="rounded-full w-10 aspect-square absolute right-5 top-5 hover:bg-gray-300/25 transition-colors"
+      (click)="toggleDetail()"
+    >
+      <i class="pi pi-times text-gray-800"></i>
+    </button>
+
+    <h2
+      class="text-4xl font-BebasNeue font-bold text-center mt-10 mb-6 text-neutral-700"
+    >
+      Detalle de Compras
+    </h2>
+
+    <div class="card relative flex-1 overflow-y-auto px-10">
+      <p-table
+        [value]="shoppingCartItems"
+        class="p-datatable-gridlines"
+        [tableStyle]="{ 'min-width': '560px' }"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Producto</th>
+            <th>Imagen</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th>Total</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-item>
+          <tr>
+            <td>{{ item.product }}</td>
+            <td>
+              <img
+                [src]="'https://picsum.photos/200/300?random=' + item.id"
+                [alt]="item.product"
+                class="w-24 rounded aspect-square"
+              />
+            </td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.price | currency : "USD" }}</td>
+            <td>{{ item.quantity * item.price | currency : "USD" }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+
+    <div class="my-10 px-5 flex justify-end relative">
+      <p-button
+        label="Ir a Pagar"
+        icon="pi pi-check"
+        [loading]="false"
+        severity="success"
+        class="p-button-lg"
+        (onClick)="navigateToPayment()"
+      ></p-button>
+      <p-button
+        label="Continuar Comprando"
+        icon="pi pi-shopping-cart"
+        [loading]="false"
+        severity="secondary"
+        class="p-button-lg"
+        (onClick)="toggleDetail()"
+      ></p-button>
+    </div>
+  </div>
+</div>

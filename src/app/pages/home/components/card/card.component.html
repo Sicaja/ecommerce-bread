@@ -1,0 +1,30 @@
+<div class="border border-surface rounded-border m-2 p-4 w-full h-full">
+  <div class="mb-4">
+    <div class="relative mx-auto mb-10">
+      <img
+        src="{{ product?.image }}"
+        [alt]="product?.name"
+        class="w-full aspect-square rounded-border"
+        title="'Imagen"
+      />
+      <p-tag
+        [value]="product?.inventoryStatus"
+        [severity]="getSeverity(product?.inventoryStatus ?? '')"
+        class="absolute mt-1"
+        styleClass="dark:!bg-surface-900"
+      />
+    </div>
+  </div>
+  <div class="mb-4 font-medium">
+    {{ product?.name }}
+  </div>
+  <div class="flex justify-between items-center">
+    <div class="mt-0 font-semibold text-xl">
+      {{ "$" + product?.price }}
+    </div>
+    <span>
+      <p-button icon="pi pi-heart" severity="secondary" [outlined]="true" />
+      <p-button icon="pi pi-shopping-cart" styleClass="ml-2" />
+    </span>
+  </div>
+</div>

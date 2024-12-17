@@ -1,8 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [],
+  content: ["./src/**/*.{html,ts}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        BebasNeue: ["Bebas Neue", "sans-serif"],
+      },
+    },
   },
   plugins: [require("tailwindcss-primeui")],
 };

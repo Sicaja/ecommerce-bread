@@ -1,0 +1,22 @@
+.container {
+  display: grid;
+  min-height: 100vh;
+  min-width: 100vw;
+  grid-template-areas:
+    "navbar navbar navbar"
+    "main main main"
+    "footer footer footer";
+  grid-template-rows: auto 1fr 10%;
+}
+
+.navbar {
+  grid-area: navbar;
+}
+
+.main {
+  grid-area: main;
+}
+
+.footer {
+  grid-area: footer;
+}
