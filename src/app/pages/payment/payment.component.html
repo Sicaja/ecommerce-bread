@@ -112,7 +112,7 @@
 
     <div class="border border-surface rounded-border p-4">
       <h3 class="text-lg font-bold mb-4">Formulario de Facturación</h3>
-      <form>
+      <form class="flex flex-col">
         <div class="mb-4">
           <p-floatLabel variant="in">
             <input
@@ -173,13 +173,44 @@
             <label for="country">País</label>
           </p-floatLabel>
         </div>
-        <button
-          type="submit"
-          class="mt-4 w-full py-2 px-4 bg-blue-500 text-white rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-        >
-          Pagar
-        </button>
+        <div class="flex w-full justify-center items-center">
+          <p-button
+            label="Pagar"
+            [loading]="isLoading"
+            (onClick)="pay()"
+            icon="pi pi-credit-card"
+            class="mt-4 w-fit py-2 px-4 text-white rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2"
+          ></p-button>
+        </div>
       </form>
     </div>
   </div>
 </div>
+
+<p-dialog
+  [(visible)]="isLoading"
+  maskStyleClass="backdrop-blur-sm"
+  [closable]="false"
+>
+  <ng-template #headless>
+    <ng-container
+      *ngTemplateOutlet="!isSuccess ? loadingPay : success"
+    ></ng-container>
+  </ng-template>
+</p-dialog>
+
+<ng-template #loadingPay>
+  <div class="flex flex-col items-center justify-center p-10">
+    <i class="pi pi-spin pi-spinner text-4xl mb-4"></i>
+    <h2 class="text-lg font-semibold">Procesando Pago...</h2>
+
+    <p class="text-sm text-gray-500 mt-2">Por favor, no cierres esta ventana</p>
+  </div>
+</ng-template>
+
+<ng-template #success>
+  <div class="flex flex-col items-center justify-center p-10 animate-zoomin">
+    <i class="pi pi-check-circle text-4xl text-green-500 mb-4"></i>
+    <h2 class="text-lg font-semibold">Pago Realizado con Éxito</h2>
+  </div>
+</ng-template>
