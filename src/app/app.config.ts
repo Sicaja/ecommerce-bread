@@ -1,6 +1,7 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import {
   provideRouter,
+  withHashLocation,
   withInMemoryScrolling,
   withRouterConfig,
 } from '@angular/router';
@@ -23,7 +24,8 @@ export const appConfig: ApplicationConfig = {
       withRouterConfig({ onSameUrlNavigation: 'reload' }),
       withInMemoryScrolling({
         scrollPositionRestoration: 'top',
-      })
+      }),
+      withHashLocation()
     ),
   ],
 };
