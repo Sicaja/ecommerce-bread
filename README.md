@@ -1,27 +1,34 @@
-# Bread
+# Pan
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.12.
+Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) versión 18.2.12.
 
-## Development server
+## Instalación de Node.js
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Asegúrate de tener instalada la versión 20 de Node.js. Puedes descargarla desde [nodejs.org](https://nodejs.org/).
 
-## Code scaffolding
+## Instalación de dependencias
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Ejecuta `npm install` para instalar todas las dependencias necesarias para el proyecto.
 
-## Build
+## Servidor de desarrollo
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Ejecuta `ng serve` para un servidor de desarrollo. Navega a `http://localhost:4200/`. La aplicación se recargará automáticamente si cambias alguno de los archivos fuente.
 
-## Running unit tests
+## Arquitectura Modular
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Este proyecto utiliza una arquitectura modular, lo que significa que el código está organizado en módulos independientes y reutilizables. Cada módulo encapsula una funcionalidad específica, lo que facilita el mantenimiento y la escalabilidad del proyecto. Esta arquitectura permite que diferentes equipos trabajen en paralelo en distintos módulos sin interferir entre sí.
 
-## Running end-to-end tests
+## Enfoque de Arquitectura Atómica
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Además de la arquitectura modular, este proyecto sigue un enfoque de arquitectura atómica para la construcción de componentes de la interfaz de usuario. La arquitectura atómica se basa en la idea de descomponer la interfaz en sus elementos más básicos, llamados átomos, que luego se combinan para formar componentes más complejos, como moléculas y organismos. Este enfoque facilita la reutilización y el mantenimiento de los componentes, asegurando una mayor consistencia en el diseño de la interfaz de usuario.
 
-## Further help
+## Librerías de Componentes
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Para la construcción de la interfaz de usuario, se utilizan las siguientes librerías de componentes:
+
+- **PrimeNG**: Una colección rica de componentes de interfaz de usuario para Angular, que incluye tablas, formularios, menús, gráficos y más. Puedes obtener más información en [PrimeNG](https://www.primefaces.org/primeng/).
+- **Tailwind CSS**: Un framework de CSS utilitario que permite crear diseños personalizados de manera rápida y eficiente. Más detalles en [Tailwind CSS](https://tailwindcss.com/).
+
+## Más ayuda
+
+Para obtener más ayuda sobre Angular CLI, usa `ng help` o visita la página [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli).
